@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Logily</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth;}
+    body { font-family: 'Inter', sans-serif;}
+    .gradient-text {
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 60%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: gradientMove 4s ease-in-out infinite alternate;
+    }
+    @keyframes gradientMove {
+      0% {background-position:0%;}
+      100% {background-position:100%;}
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    .btn-cta {
+      background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 24px 0 rgba(37, 99, 235, 0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.25);
+      background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+    }
+    .card-hover {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card-hover:hover {
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.10);
+      transform: translateY(-4px) scale(1.03);
+    }
+  </style>
+    <meta name="description" content="Une question ? Notre équipe est là pour vous accompagner">
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col">
+  <header class="w-full bg-white/90 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 sm:py-4">
+      <a href="./" class="flex items-center gap-2">
+        <img src="https://d1olmvoet3matb.cloudfront.net/BFpf8KJm5T/images/e0780052baea165f.png" alt="Logo" class="w-10 h-10 rounded-lg shadow-lg transform hover:scale-110 transition-transform duration-300 ease-in-out">
+        <span class="font-extrabold text-xl text-blue-800 tracking-tight hover:text-blue-600 transition-colors duration-300">Logily</span>
+      </a>
+      <nav class="hidden md:flex gap-8 font-medium items-center">
+        <a href="./#how" class="hover:text-blue-600 transition">Comment ça marche ?</a>
+        <a href="./#formulaire" class="hover:text-blue-600 transition">Demander un devis</a>
+        <a href="Articles" id="page-link" data-page-id="686eb4f58aca6e5d986c0ca9" class="text-gray-700 hover:text-blue-500">Articles</a>
+        <a href="Contact" class="hover:text-blue-600 transition" id="page-link" data-page-id="687a3b0b5548b8121aa83c6a">Contact</a>
+        <a href="./#formulaire" class="btn-cta px-5 py-2 ml-2 text-base shadow hover:shadow-lg">Je cherche un logisticien</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-blue-50 text-blue-700 text-2xl focus:outline-none">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pb-4">
+      <a href="./#how" class="block py-2 text-base font-medium hover:text-blue-600">Comment ça marche ?</a>
+      <a href="./#formulaire" class="block py-2 text-base font-medium hover:text-blue-600">Demander un devis</a>
+      <a href="./#ressources" class="block py-2 text-base font-medium hover:text-blue-600">Ressources</a>
+      <a href="./contact" class="block py-2 text-base font-medium hover:text-blue-600">Contact</a>
+      <a href="./#formulaire" class="btn-cta block w-full mt-2 py-2 text-center text-base shadow hover:shadow-lg">Je cherche un logisticien</a>
+    </div>
+  </header>
+  
+  <section class="relative overflow-hidden py-14 md:py-24 bg-white">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+            <span class="gradient-text">Une question ?</span>
+          </h2>
+          <p class="text-xl text-gray-600">Notre équipe est là pour vous accompagner</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-8 fade-in" style="animation-delay: 0.1s;">
+            <div class="flex items-start">
+              <div class="bg-gradient-to-br from-blue-200 via-blue-100 to-white p-3 rounded-full mr-4 shadow">
+                <i class="fas fa-envelope text-blue-700 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1 text-blue-900">Email</h3>
+                <p class="text-gray-600">contact@logisticonnect.fr</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-gradient-to-br from-blue-200 via-blue-100 to-white p-3 rounded-full mr-4 shadow">
+                <i class="fas fa-phone text-blue-700 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1 text-blue-900">Téléphone</h3>
+                <p class="text-gray-600"><a href="tel:01 23 45 67 89">01 23 45 67 89</a></p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-gradient-to-br from-blue-200 via-blue-100 to-white p-3 rounded-full mr-4 shadow">
+                <i class="fas fa-clock text-blue-700 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1 text-blue-900">Horaires</h3>
+                <p class="text-gray-600">Lundi - Vendredi : 9h - 18h</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl shadow-2xl p-8 border border-blue-100 fade-in card-hover" style="animation-delay: 0.2s;">
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Nom complet</label>
+                <input type="text" required="" class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                <input type="email" required="" class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                <textarea rows="4" required="" class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
+              </div>
+              <button type="submit" class="btn-cta w-full px-6 py-3 text-lg shadow-lg">
+                Envoyer le message <i class="fa fa-arrow-circle-right ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white mt-auto pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-8">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <img src="https://d1olmvoet3matb.cloudfront.net/BFpf8KJm5T/images/e0780052baea165f.png" alt="Logo" class="w-8 h-8 rounded-lg">
+          <span class="font-extrabold text-lg">Logily</span>
+        </div>
+        <span class="text-slate-200 text-sm">© 2025 Logily - Tous droits réservés</span>
+      </div>
+      <nav class="flex flex-wrap gap-8 text-slate-100 text-sm font-medium">
+        <a href="./" class="hover:underline">Accueil</a>
+        <a href="./#how" class="hover:underline">Comment ça marche ?</a>
+        <a href="./ressources" class="hover:underline">Ressources</a>
+        <a href="./contact" class="hover:underline">Contact</a>
+        <a href="./mentions-legales" class="hover:underline">Mentions légales</a>
+        <a href="./cgu" class="hover:underline">CGU</a>
+      </nav>
+      <div class="flex gap-4 items-center text-lg">
+        <a href="mailto:contact@logily.fr" class="hover:text-blue-300" title="Email"><i class="fa fa-envelope"></i></a>
+        <a href="#" class="hover:text-blue-300" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="hover:text-blue-300" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-6 text-slate-400 text-xs text-center">
+      Site optimisé SEO • <span>Conçu avec passion pour la logistique e-commerce</span>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      alert('Message envoyé avec succès !');
+      event.target.reset();
+    }
+    
+    document.getElementById('mobile-menu-btn').onclick = function() {
+      var menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('block');
+    };
+  </script>
+</body>
+</html>
