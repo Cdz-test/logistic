@@ -121,7 +121,28 @@
             </div>
           </div>
           <div class="bg-white rounded-3xl shadow-2xl p-8 border border-blue-100 fade-in card-hover" style="animation-delay: 0.2s;">
-  <form action="https://formspree.io/f/xldldwzn" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
+  <div id="contact-form-success" class="hidden bg-green-100 border-2 border-green-400 text-green-700 px-6 py-4 rounded-xl mb-6 text-center transform transition-all duration-500">
+    <i class="fa fa-check-circle text-2xl mb-2 text-green-600"></i>
+    <p class="font-semibold text-lg">Votre message a bien été envoyé !</p>
+    <p class="text-sm mt-1">Nous vous répondrons dans les plus brefs délais.</p>
+  </div>
+  <div id="contact-form-loader" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center backdrop-blur-sm">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl transform scale-100 transition-transform">
+      <div class="flex flex-col items-center">
+        <div class="relative">
+          <div class="animate-spin rounded-full h-16 w-16 border-4 border-blue-200"></div>
+          <div class="absolute top-0 left-0 animate-spin rounded-full h-16 w-16 border-4 border-transparent border-t-blue-600"></div>
+        </div>
+        <p class="mt-6 text-gray-700 font-medium text-lg">Envoi en cours...</p>
+        <div class="flex space-x-1 mt-3">
+          <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+          <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+          <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form id="contact-form" action="https://formspree.io/f/xldldwzn" method="POST" class="space-y-4">
     <div>
       <label class="block text-gray-700 font-semibold mb-2">Nom complet</label>
       <input type="text" name="name" required="" class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
@@ -138,6 +159,55 @@
       Envoyer le message <i class="fa fa-arrow-circle-right ml-2"></i>
     </button>
   </form>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const loader = document.getElementById('contact-form-loader');
+      const successMsg = document.getElementById('contact-form-success');
+      const form = document.getElementById('contact-form');
+      
+      loader.classList.remove('hidden');
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        loader.classList.add('hidden');
+        if (response.ok) {
+          successMsg.classList.remove('hidden');
+          successMsg.classList.add('animate-fade-in');
+          form.reset();
+          setTimeout(() => {
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+        } else {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      }).catch(error => {
+        loader.classList.add('hidden');
+        alert('Une erreur est survenue. Veuillez réessayer.');
+      });
+    });
+  </script>
+  <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.5s ease-out;
+    }
+  </style>
 </div>
         </div>
       </div>
