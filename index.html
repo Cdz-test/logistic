@@ -235,14 +235,14 @@
         pauseEnd: 1500,
         pauseStart: 20,
         direction: 'forward',
-    }" x-init="$nextTick(() => {
+    }" x-init="$nextTick(() =&gt; {
         let typingInterval = setInterval(startTyping, $data.typeSpeed);
     
         function startTyping(){
             let current = $data.textArray[ $data.textIndex ];
             
             // check to see if we hit the end of the string
-            if($data.charIndex > current.length){
+            if($data.charIndex &gt; current.length){
                     $data.direction = 'backward';
                     clearInterval(typingInterval);
                     
@@ -265,7 +265,7 @@
                     clearInterval(typingInterval);
                     setTimeout(function(){
                         $data.textIndex += 1;
-                        if($data.textIndex >= $data.textArray.length)
+                        if($data.textIndex &gt;= $data.textArray.length)
                         {
                             $data.textIndex = 0;
                         }
@@ -383,29 +383,29 @@
   </div>
   <form id="lead-form" action="https://formspree.io/f/mdkdklzg" method="POST" class="space-y-6">
     <div class="relative">
-      <input required="" type="text" id="brand" name="brand" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="organization">
-      <label for="brand" class="floating-label">Nom de la marque *</label>
+      <input required="" type="text" id="brand" name="brand" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="organization">
+      <label for="brand" class="floating-label absolute left-4 top-3.5 text-gray-500 text-sm md:text-base transition-all duration-200 pointer-events-none transform origin-left">Nom de la marque *</label>
     </div>
     <div class="relative">
-      <input required="" type="text" id="products" name="products" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
-      <label for="products" class="floating-label">Type de produits vendus *</label>
+      <input required="" type="text" id="products" name="products" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="off">
+      <label for="products" class="floating-label absolute left-4 top-3 text-gray-500 text-sm md:text-base transition-all duration-200 pointer-events-none transform origin-left">Type de produits vendus *</label>
     </div>
     <div class="relative">
-      <input required="" type="text" id="volume" name="volume" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
-      <label for="volume" class="floating-label">Volumes mensuels estimés (ex : 500 colis/mois) *</label>
+      <input required="" type="text" id="volume" name="volume" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="off">
+      <label for="volume" class="floating-label absolute left-4 top-3 text-gray-500 text-xs md:text-base transition-all duration-200 pointer-events-none transform origin-left">Volumes mensuels estimés (ex : 500 colis/mois) *</label>
     </div>
     <div class="relative">
-      <input required="" type="text" id="channels" name="channels" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
-      <label for="channels" class="floating-label">Canaux de vente (Shopify, Amazon, etc.) *</label>
+      <input required="" type="text" id="channels" name="channels" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="off">
+      <label for="channels" class="floating-label absolute left-4 top-3 text-gray-500 text-xs md:text-base transition-all duration-200 pointer-events-none transform origin-left">Canaux de vente (Shopify, Amazon, etc.) *</label>
     </div>
     <div class="flex flex-col md:flex-row gap-6">
       <div class="relative flex-1">
-        <input required="" type="email" id="email" name="email" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="email">
-        <label for="email" class="floating-label">Adresse e-mail *</label>
+        <input required="" type="email" id="email" name="email" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="email">
+        <label for="email" class="floating-label absolute left-4 top-3 text-gray-500 text-sm md:text-base transition-all duration-200 pointer-events-none transform origin-left">Adresse e-mail *</label>
       </div>
       <div class="relative flex-1">
-        <input required="" type="tel" id="phone" name="phone" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="tel">
-        <label for="phone" class="floating-label">Téléphone *</label>
+        <input required="" type="tel" id="phone" name="phone" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-sm md:text-base focus:outline-none" autocomplete="tel">
+        <label for="phone" class="floating-label absolute left-4 top-3 text-gray-500 text-sm md:text-base transition-all duration-200 pointer-events-none transform origin-left">Téléphone *</label>
       </div>
     </div>
     <button type="submit" class="btn-cta w-full py-3 text-lg mt-2 shadow-lg">Être mis en relation <i class="fa fa-arrow-circle-right ml-2"></i></button>
@@ -458,6 +458,21 @@
     }
     .animate-fade-in {
       animation: fade-in 0.5s ease-out;
+    }
+    .input:focus + .floating-label,
+    .input:not(:placeholder-shown) + .floating-label {
+      transform: translateY(-0.2rem) scale(0.8);
+      color: #3b82f6;
+    }
+    @media (max-width: 768px) {
+      .floating-label {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .input:focus + .floating-label,
+      .input:not(:placeholder-shown) + .floating-label {
+        transform: translateY(-0.1rem) scale(0.85);
+      }
     }
   </style>
 </div>
