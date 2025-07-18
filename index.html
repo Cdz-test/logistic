@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trouvez le logisticien e-commerce idéal pour votre marque</title>
+  <meta name="description" content="Comparez gratuitement les meilleurs logisticiens e-commerce en France et trouvez la solution idéale pour votre marque. Demandez un devis en quelques clics.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth;}
+    body { font-family: 'Inter', sans-serif;}
+    .gradient-title {
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 60%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: gradientMove 4s ease-in-out infinite alternate;
+    }
+    @keyframes gradientMove {
+      0% {background-position:0%;}
+      100% {background-position:100%;}
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn-cta {
+      background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 24px 0 rgba(37, 99, 235, 0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.25);
+      background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+    }
+    .step-card {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .step-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.13);
+      transform: translateY(-4px) scale(1.03);
+      background: linear-gradient(100deg, #f1f5f9 50%, #e0e7ff 100%);
+    }
+    .blog-card {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.10);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .input-focus:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px #2563eb33;
+    }
+    .floating-label {
+      position: absolute;
+      left: 1rem;
+      top: 1.1rem;
+      background: white;
+      padding: 0 0.25rem;
+      color: #64748b;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: all 0.2s;
+    }
+    .input:focus + .floating-label,
+    .input:not(:placeholder-shown) + .floating-label {
+      top: -0.7rem;
+      left: 0.8rem;
+      font-size: 0.85rem;
+      color: #2563eb;
+      font-weight: 500;
+      background: #fff;
+    }
+    .form-success {
+      background: linear-gradient(90deg, #22d3ee 0%, #38bdf8 100%);
+      color: #0f172a;
+      border-radius: 0.75rem;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 24px 0 rgba(16, 185, 129, 0.15);
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+    .form-success.visible {
+      display: block;
+      animation: fadeInScale 0.6s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes fadeInScale {
+      0% {opacity:0; transform:scale(0.95);}
+      100% {opacity:1; transform:scale(1);}
+    }
+    .floating-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.23);
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .floating-btn:hover {
+      background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+      transform: scale(1.08);
+    }
+    @media (max-width: 640px) {
+      .floating-btn { right: 1rem; bottom: 1rem;}
+    }
+  </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="w-full bg-white/90 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 sm:py-4">
+      <a href="/" class="flex items-center gap-2">
+  <img src="https://d1olmvoet3matb.cloudfront.net/BFpf8KJm5T/images/e0780052baea165f.png" alt="Logo" class="w-10 h-10 rounded-lg shadow-lg transform hover:scale-110 transition-transform duration-300 ease-in-out">
+  <span class="font-extrabold text-xl text-blue-800 tracking-tight hover:text-blue-600 transition-colors duration-300">Logily</span>
+</a>
+      <nav class="hidden md:flex gap-8 font-medium items-center">
+        <a href="#how" class="hover:text-blue-600 transition">Comment ça marche ?</a>
+        <a href="#formulaire" class="hover:text-blue-600 transition">Demander un devis</a>
+        <a href="Articles" id="page-link" data-page-id="686eb4f58aca6e5d986c0ca9" class="text-gray-700 hover:text-blue-500">Articles</a>
+        <a href="/contact" class="hover:text-blue-600 transition">Contact</a>
+        <a href="#formulaire" class="btn-cta px-5 py-2 ml-2 text-base shadow hover:shadow-lg">Je cherche un logisticien</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-blue-50 text-blue-700 text-2xl focus:outline-none">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pb-4">
+      <a href="#how" class="block py-2 text-base font-medium hover:text-blue-600">Comment ça marche ?</a>
+      <a href="#formulaire" class="block py-2 text-base font-medium hover:text-blue-600">Demander un devis</a>
+      <a href="/#ressources" class="block py-2 text-base font-medium hover:text-blue-600">Ressources</a>
+      <a href="/contact" class="block py-2 text-base font-medium hover:text-blue-600">Contact</a>
+      <a href="#formulaire" class="btn-cta block w-full mt-2 py-2 text-center text-base shadow hover:shadow-lg">Je cherche un logisticien</a>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-14 md:py-24 bg-gradient-to-br from-blue-50 via-blue-100 to-white">
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <div class="absolute top-[-100px] left-[-100px] w-[320px] h-[320px] bg-gradient-to-br from-blue-300/40 via-blue-200/30 to-blue-100/0 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-[-80px] right-[-120px] w-[350px] h-[350px] bg-gradient-to-tr from-blue-400/30 via-blue-200/10 to-white/0 rounded-full blur-2xl animate-pulse"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <h1 class="gradient-title text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 fade-up">Trouvez le logisticien e-commerce idéal pour votre marque</h1>
+        <p class="text-lg md:text-xl text-slate-700 mb-5 fade-up" style="transition-delay:0.1s;">Comparez gratuitement les meilleures solutions logistiques en quelques clics.</p>
+        <ul class="flex flex-wrap gap-4 mb-7 fade-up" style="transition-delay:0.2s;">
+          <li class="flex items-center gap-2 bg-white/80 border border-blue-100 px-3 py-2 rounded-lg shadow-sm text-blue-700 font-medium text-sm"><i class="fa fa-check-circle text-blue-500"></i> 100% gratuit &amp; sans engagement</li>
+          <li class="flex items-center gap-2 bg-white/80 border border-blue-100 px-3 py-2 rounded-lg shadow-sm text-blue-700 font-medium text-sm"><i class="fa fa-check-circle text-blue-500"></i> Réponse en moins de 24h</li>
+        </ul>
+        <a href="#formulaire" class="btn-cta px-8 py-3 text-lg shadow-lg fade-up" style="transition-delay:0.3s;">Je cherche un logisticien <i class="fa fa-arrow-right ml-2"></i></a>
+        <div class="flex items-center gap-3 mt-8 fade-up" style="transition-delay:0.4s;">
+          <img src="https://placehold.co/44x44" alt="Client" class="rounded-full border-2 border-blue-200 shadow-sm">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 text-base">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+            </div>
+            <span class="text-sm text-slate-500">Note moyenne : <span class="font-semibold text-blue-700">4.8/5</span> (128 avis)</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 flex items-center justify-center w-full fade-up" style="transition-delay:0.5s;">
+        <div class="relative w-full max-w-md">
+          <img src="https://d1olmvoet3matb.cloudfront.net/BFpf8KJm5T/images/c51d507c3859b8b4.jpeg" alt="Illustration logistique" class="rounded-2xl shadow-xl border-4 border-blue-100 animate-float">
+          <div class="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-2">
+            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-blue-600 shadow"><i class="fa fa-truck"></i> 50+ partenaires</span>
+            <span class="bg-blue-100 px-3 py-1 rounded-full text-xs font-semibold text-blue-700 shadow"><i class="fa fa-box"></i> 12M+ colis/an</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How it works -->
+  <section id="how" class="relative py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-8 text-center fade-up">Comment ça marche ?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="step-card bg-white border border-blue-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-md fade-up" style="transition-delay:0.1s;">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-200 via-blue-100 to-white flex items-center justify-center text-3xl text-blue-700 mb-4 shadow">
+            <i class="fa fa-clipboard-list"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2 text-blue-900">1. Décrivez vos besoins</h3>
+          <p class="text-slate-600">Remplissez le formulaire en précisant votre activité, vos volumes et vos attentes.</p>
+        </div>
+        <div class="step-card bg-white border border-blue-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-md fade-up" style="transition-delay:0.2s;">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-200 via-blue-100 to-white flex items-center justify-center text-3xl text-blue-700 mb-4 shadow">
+            <i class="fa fa-search"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2 text-blue-900">2. Nous identifions les meilleurs partenaires</h3>
+          <p class="text-slate-600">Notre équipe analyse votre demande et sélectionne les logisticiens adaptés à vos besoins.</p>
+        </div>
+        <div class="step-card bg-white border border-blue-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-md fade-up" style="transition-delay:0.3s;">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-200 via-blue-100 to-white flex items-center justify-center text-3xl text-blue-700 mb-4 shadow">
+            <i class="fa fa-handshake"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2 text-blue-900">3. Mise en relation gratuite</h3>
+          <p class="text-slate-600">Recevez rapidement des propositions personnalisées des logisticiens partenaires.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Preuves sociales -->
+  <section class="py-12 bg-gradient-to-br from-blue-50 via-white to-white">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex-1 mb-8 md:mb-0">
+        <h2 class="text-xl font-bold text-blue-800 mb-2 fade-up">Ils nous font confiance :</h2>
+        <div class="flex flex-wrap gap-6 items-center fade-up" style="transition-delay:0.1s;">
+          <img src="https://images.unsplash.com/photo-1508599589920-14cfa1c1fe4d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwxfHxicmFuZHxlbnwwfDB8fHwxNzUyODE5NDgwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Partenaire 1" class="h-10 grayscale hover:grayscale-0 transition">
+          <img src="https://placehold.co/100x40?text=Brand2" alt="Partenaire 2" class="h-10 grayscale hover:grayscale-0 transition">
+          <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHw1fHxicmFuZHxlbnwwfDB8fHwxNzUyODE5NDgwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Partenaire 3" class="h-10 grayscale hover:grayscale-0 transition">
+          <img src="https://placehold.co/100x40?text=Brand4" alt="Partenaire 4" class="h-10 grayscale hover:grayscale-0 transition">
+          <img src="https://placehold.co/100x40?text=Brand5" alt="Partenaire 5" class="h-10 grayscale hover:grayscale-0 transition">
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="bg-white border border-blue-100 rounded-xl p-6 shadow-lg max-w-sm mx-auto fade-up" style="transition-delay:0.2s;">
+          <div class="flex items-center gap-3 mb-2">
+            <img src="https://placehold.co/48x48" alt="Client" class="w-12 h-12 rounded-full border-2 border-blue-200 shadow">
+            <div>
+              <div class="flex gap-1 text-yellow-400 text-base">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+              </div>
+              <span class="text-sm text-blue-700 font-semibold">Julie, fondatrice de LumaShop</span>
+            </div>
+          </div>
+          <p class="text-slate-700 text-sm italic">“Grâce à LogiMatch, nous avons trouvé en 2 jours un logisticien parfaitement adapté à notre croissance. Service rapide, efficace, et surtout gratuit !”</p>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col gap-6 items-center fade-up" style="transition-delay:0.3s;">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-extrabold text-blue-700">+50</div>
+          <div class="text-slate-600 text-base">Logisticiens partenaires</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-extrabold text-blue-700">98%</div>
+          <div class="text-slate-600 text-base">Clients satisfaits</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Formulaire de lead -->
+  <section id="formulaire" class="py-16 md:py-24 bg-gradient-to-br from-blue-100 via-white to-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-blue-100 relative">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-6 text-center fade-up">Demandez votre mise en relation personnalisée</h2>
+        <div id="form-success" class="form-success"></div>
+        <form id="lead-form" action="https://formsubmit.co/matthieuballin@icloud.com" method="POST" class="space-y-6">
+          <div class="relative">
+            <input required="" type="text" id="brand" name="brand" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="organization">
+            <label for="brand" class="floating-label">Nom de la marque *</label>
+          </div>
+          <div class="relative">
+            <input required="" type="text" id="products" name="products" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
+            <label for="products" class="floating-label">Type de produits vendus *</label>
+          </div>
+          <div class="relative">
+            <input required="" type="text" id="volume" name="volume" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
+            <label for="volume" class="floating-label">Volumes mensuels estimés (ex : 500 colis/mois) *</label>
+          </div>
+          <div class="relative">
+            <input required="" type="text" id="channels" name="channels" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="off">
+            <label for="channels" class="floating-label">Canaux de vente (Shopify, Amazon, etc.) *</label>
+          </div>
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="relative flex-1">
+              <input required="" type="email" id="email" name="email" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="email">
+              <label for="email" class="floating-label">Adresse e-mail *</label>
+            </div>
+            <div class="relative flex-1">
+              <input required="" type="tel" id="phone" name="phone" placeholder=" " class="input input-focus block w-full px-4 py-3 border border-slate-200 rounded-lg bg-white text-base focus:outline-none" autocomplete="tel">
+              <label for="phone" class="floating-label">Téléphone *</label>
+            </div>
+          </div>
+          <button type="submit" class="btn-cta w-full py-3 text-lg mt-2 shadow-lg">Être mis en relation <i class="fa fa-arrow-circle-right ml-2"></i></button>
+        </form>
+        <div class="text-xs text-slate-500 text-center mt-5">Vos données sont strictement confidentielles. <a href="/mentions-legales" class="underline hover:text-blue-700">Mentions légales</a></div>
+      </div>
+    </div>
+  </section>
+  <!-- Ressources / Blog -->
+  <section id="ressources" class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-blue-800 fade-up">Ressources &amp; Conseils</h2>
+        <a href="/ressources" class="text-blue-700 hover:underline mt-2 md:mt-0 fade-up" style="transition-delay:0.1s;"><i class="fa fa-book-open mr-1"></i> Voir tous les articles</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="#" class="blog-card bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl shadow-lg p-6 flex flex-col gap-3 hover:shadow-xl fade-up" style="transition-delay:0.1s;">
+          <div class="flex items-center gap-2 text-blue-600 font-semibold text-xs"><i class="fa fa-lightbulb"></i> Guide</div>
+          <h3 class="font-bold text-lg mb-1">Comment choisir son logisticien e-commerce ?</h3>
+          <p class="text-slate-600 text-sm">Découvrez les critères essentiels pour sélectionner le bon partenaire logistique pour votre boutique en ligne.</p>
+          <span class="mt-auto text-blue-700 font-medium text-sm hover:underline">Lire l'article <i class="fa fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="blog-card bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl shadow-lg p-6 flex flex-col gap-3 hover:shadow-xl fade-up" style="transition-delay:0.2s;">
+          <div class="flex items-center gap-2 text-blue-600 font-semibold text-xs"><i class="fa fa-coins"></i> Comparatif</div>
+          <h3 class="font-bold text-lg mb-1">Frais logistiques : comment les comparer ?</h3>
+          <p class="text-slate-600 text-sm">Un tour d’horizon des principaux frais logistiques et des conseils pour bien négocier avec les prestataires.</p>
+          <span class="mt-auto text-blue-700 font-medium text-sm hover:underline">Lire l'article <i class="fa fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="blog-card bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl shadow-lg p-6 flex flex-col gap-3 hover:shadow-xl fade-up" style="transition-delay:0.3s;">
+          <div class="flex items-center gap-2 text-blue-600 font-semibold text-xs"><i class="fa fa-warehouse"></i> Conseil</div>
+          <h3 class="font-bold text-lg mb-1">Faut-il internaliser ou externaliser sa logistique ?</h3>
+          <p class="text-slate-600 text-sm">Avantages et inconvénients de l’internalisation et de l’externalisation pour les e-commerçants français.</p>
+          <span class="mt-auto text-blue-700 font-medium text-sm hover:underline">Lire l'article <i class="fa fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white mt-auto pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:justify-between md:items-center gap-8">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <img src="https://placehold.co/40x40/fff/2563eb?text=L" alt="Logo" class="w-8 h-8 rounded-lg">
+          <span class="font-extrabold text-lg">Logily</span>
+        </div>
+        <span class="text-slate-200 text-sm">© 2025 LogiMatch - Tous droits réservés</span>
+      </div>
+      <nav class="flex flex-wrap gap-8 text-slate-100 text-sm font-medium">
+        <a href="/" class="hover:underline">Accueil</a>
+        <a href="#how" class="hover:underline">Comment ça marche ?</a>
+        <a href="/ressources" class="hover:underline">Ressources</a>
+        <a href="/contact" class="hover:underline">Contact</a>
+        <a href="/mentions-legales" class="hover:underline">Mentions légales</a>
+        <a href="/cgu" class="hover:underline">CGU</a>
+      </nav>
+      <div class="flex gap-4 items-center text-lg">
+        <a href="mailto:contact@logimatch.fr" class="hover:text-blue-300" title="Email"><i class="fa fa-envelope"></i></a>
+        <a href="#" class="hover:text-blue-300" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="hover:text-blue-300" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-6 text-slate-400 text-xs text-center">
+      Site optimisé SEO • <span>Conçu avec passion pour la logistique e-commerce</span>
+    </div>
+  </footer>
+  <!-- Floating CTA Button -->
+  
+  <!-- Animation Script -->
+  <script>
+    // Fade up on scroll
+    function handleFadeUp() {
+      document.querySelectorAll('.fade-up').forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleFadeUp);
+    window.addEventListener('DOMContentLoaded', handleFadeUp);
+    // Animate hero image
+    document.querySelectorAll('.animate-float').forEach(function(el){
+      el.animate([
+        {transform:'translateY(0px)'},
+        {transform:'translateY(-12px)'},
+        {transform:'translateY(0px)'}
+      ],{
+        duration: 3400,
+        iterations: Infinity
+      });
+    });
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').onclick = function() {
+      var menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('block');
+    };
+  </script>
+</body>
+</html>
